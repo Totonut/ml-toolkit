@@ -1,2 +1,2 @@
 # ml-toolkit
-Ml tools developed with Python
+Machine learning tools developed with Python
