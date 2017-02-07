@@ -47,6 +47,3 @@ class TestGenetic(unittest.TestCase):
         data = WeightedSelection.tournament(self.data, self.fitness, len(self.data))
         self.assertTrue(len(data) == len(self.data))
         self.assertTrue(sum(data) >= len(data) * (len(data) + 1) / 2)
-
-if __name__ == "__main__":
-    unittest.main()
