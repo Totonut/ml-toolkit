@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='ml-toolkit',
+    name='ml_toolkit',
     version='1.0',
-    packages=['ml-toolkit'],
+    packages=['ml_toolkit'],
 )
