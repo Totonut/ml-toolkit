@@ -1,2 +1,2 @@
-from distances import *
-from functions import *
+from .distances import *
+from .functions import *

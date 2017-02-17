@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-from activation import TanH
+from .activation import TanH
 
 class Layer():
     def __init__(self, input_size, output_size, activation=TanH, seed=None):

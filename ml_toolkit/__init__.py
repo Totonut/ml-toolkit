@@ -1,3 +1,3 @@
-from genetic import *
-from cost import *
-from neural import *
+from .genetic import *
+from .cost import *
+from .neural import *

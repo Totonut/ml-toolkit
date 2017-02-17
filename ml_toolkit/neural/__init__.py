@@ -1,3 +1,3 @@
-from neural_network import *
-from layer import *
-from activation import *
+from .neural_network import *
+from .layer import *
+from .activation import *

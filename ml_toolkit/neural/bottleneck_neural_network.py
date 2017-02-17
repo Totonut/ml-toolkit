@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from activation import TanH
-from distance import distest
-from neural_network import NeuralNetwork
+from .activation import TanH
+from .distance import distest
+from .neural_network import NeuralNetwork
 
 class BottleneckNeuralNetwork(NeuralNetwork):
     def __init__(self, layers, activation=TanH, loss=distest(), seed=None):

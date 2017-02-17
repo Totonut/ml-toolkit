@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from layer import Layer
-from activation import TanH
-from distance import distest
+from .layer import Layer
+from .activation import TanH
+from .distance import distest
 
 class NeuralNetwork(object):
     def __init__(self, layers, activation=TanH, loss=distest(), seed=None):
