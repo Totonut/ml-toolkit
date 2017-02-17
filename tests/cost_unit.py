@@ -81,7 +81,11 @@ class TestCost(unittest.TestCase):
     def testEuclidian(self):
         self.assertEqual(Euclidian.loss(self.x, self.x), 0)
         self.assertTrue(len(Euclidian.derivative(self.x, self.x)) > 0)
+        for i in range(self.sample_size):
+            self.assertEqual(Euclidian.derivative(self.x, self.x)[i], 0)
 
     def testCosine(self):
         self.assertAlmostEqual(Cosine.loss(self.x, self.x), 0, places=1)
         self.assertTrue(len(Cosine.derivative(self.x, self.x)) > 0)
+        for i in range(self.sample_size):
+            self.assertAlmostEqual(Euclidian.derivative(self.x, self.x)[i], 0)
