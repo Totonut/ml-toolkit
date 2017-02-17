@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from .activation import TanH
 from .distance import distest
 from .neural_network import NeuralNetwork

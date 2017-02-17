@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 class Loss():
     def __call__(self, output, expected):
         raise NotImplementedError
