@@ -1,13 +1,43 @@
 Basics:
-
-- Linear, Polynomial, Logistic regression
-- Genetic architecture
-- Neural Networks (Deep, Convolutional, Recurrent, Feed-Forward, Boltsmann, Bottleneck, ...)
+- Regressions:
+	- Linear
+	- Polynomial
+	- Logistic
+- Genetic:
+	- General architecture
+- Neural:
+	- Networks:
+		D Simple
+		- Convolutional
+		- Recurrent
+		- Long Short-Term Memory
+		D Bottleneck
+		D Auto-Encoders
+		- Siamese
+		- ...
+	- Layers:
+		- Recurrent
+		- Long Short-Term Memory
+		- ...
+	- Activations:
+		D Identity
+		D ReLu
+		D Sigmoid
+		D TanH
+		D SoftMax
+		- ...
+- Losses:
+	- Quadratic
+	- Cross-entropy
+	- Exponentional
+	- Hellinger
+	- Kullback-Leibler
+	- Generalized Kullback-Leibler
+	- Itakura-Saito
 - Clustering algorithms
 - Reinforcment learning
 
 To be added:
-
 - PCA
 - HMM
 - Neural Turing Machine
