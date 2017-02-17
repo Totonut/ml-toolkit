@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from layer import Layer
-from activation import Sigmoid
+from activation import TanH
 from distance import distest
 
 class NeuralNetwork(object):
-    def __init__(self, layers, activation=Sigmoid, loss=distest(), seed=None):
+    def __init__(self, layers, activation=TanH, loss=distest(), seed=None):
         self.loss = loss
         if (type(layers[0]) is int):
             self.layers = [Layer(layers[i], layers[i + 1], activation, seed) for i in range(len(layers) - 1)]
