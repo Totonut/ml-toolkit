@@ -1,9 +1,9 @@
+import numpy as np
 from .activation import TanH
-from .distance import distest
 from .neural_network import NeuralNetwork
 
 class BottleneckNeuralNetwork(NeuralNetwork):
-    def __init__(self, layers, activation=TanH, loss=distest(), seed=None):
+    def __init__(self, layers, activation=TanH, loss=np.subtract, seed=None):
         super(BottleneckNeuralNetwork, self).__init__(layers, activation, loss, seed)
         
     def encode(self, inputs, end):

@@ -1,10 +1,9 @@
 import numpy as np
 from .activation import TanH
-from .distance import distest
 from .neural_network import NeuralNetwork
 
 class AutoEncoder(NeuralNetwork):
-    def __init__(self, layers, activation=TanH, loss=distest(), seed=None):
+    def __init__(self, layers, activation=TanH, loss=np.subtract, seed=None):
         if (type(layers[0]) is int):
             layers += layers[-2::-1]
         super(AutoEncoder, self).__init__(layers, activation, loss, seed)
