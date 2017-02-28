@@ -1,7 +1,7 @@
 import numpy as np
 from .layer import Layer
 from .activation import TanH
-from cost import Quadratic
+from ml_toolkit.cost import Quadratic
 
 class NeuralNetwork(object):
     def __init__(self, layers, activation=TanH, loss=Quadratic, seed=None):

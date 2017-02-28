@@ -2,7 +2,7 @@ import numpy as np
 from abc import *
 
 class Activation():
-    __metaclass__ = abc.ABCMeta
+    __metaclass__ = ABCMeta
     @staticmethod
     @abstractmethod
     def activate(x):

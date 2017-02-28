@@ -9,5 +9,5 @@ class DotPrinter:
         self.model = model
 
     @abc.abstractmethod
-    def print(self, filename, filetitle="NN"):
+    def print_dot(self, filename, filetitle="NN"):
         pass
