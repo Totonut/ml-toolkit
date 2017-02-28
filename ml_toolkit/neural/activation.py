@@ -1,13 +1,15 @@
 import numpy as np
-import abc
+from abc import *
 
 class Activation():
     __metaclass__ = abc.ABCMeta
     @staticmethod
+    @abstractmethod
     def activate(x):
         pass
 
     @staticmethod
+    @abstractmethod
     def derivate(x):
         pass
 

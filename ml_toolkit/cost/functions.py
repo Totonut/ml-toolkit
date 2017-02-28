@@ -2,8 +2,6 @@ from math import *
 from abc import *
 import numpy as np
 
-from .distances import *
-
 """
     Cost functions and derivatives to evaluate a model's parameters
     For each function:
