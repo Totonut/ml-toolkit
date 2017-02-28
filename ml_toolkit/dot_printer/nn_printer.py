@@ -1,6 +1,6 @@
 from graphviz import Digraph
 
-def NNPrinter(DotPrinter):
+class NNPrinter(DotPrinter):
     def print(self, filename, filetitle="NN"):
         dot = Digraph(comment=filetitle)
         previous_size = len(self.model.layers[0].weights[0]) - 1

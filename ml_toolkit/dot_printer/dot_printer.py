@@ -1,6 +1,6 @@
 import abc
 
-def DotPrinter:
+class DotPrinter:
     """
     Dot printer using graphviz module
     """

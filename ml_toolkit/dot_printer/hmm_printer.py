@@ -1,6 +1,6 @@
 from graphviz import Digraph
 
-def HMMPrinter(DotPrinter):
+class HMMPrinter(DotPrinter):
     def print_dot(self, filename, filetitle="HMM"):
         dot = Digraph(comment=filetitle)
         for i in range(self.model.m):
