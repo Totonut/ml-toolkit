@@ -1,4 +1,3 @@
-import numpy as np
 from .layer import Layer
 from .activation import TanH
 from ml_toolkit.cost import Quadratic

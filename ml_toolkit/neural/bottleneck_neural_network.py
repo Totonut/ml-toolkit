@@ -1,9 +1,9 @@
-import numpy as np
 from .activation import TanH
 from .neural_network import NeuralNetwork
+from ml_toolkit.cost import Quadratic
 
 class BottleneckNeuralNetwork(NeuralNetwork):
-    def __init__(self, layers, activation=TanH, loss=np.subtract, seed=None):
+    def __init__(self, layers, activation=TanH, loss=Quadratic, seed=None):
         super(BottleneckNeuralNetwork, self).__init__(layers, activation, loss, seed)
         
     def encode(self, inputs, end):

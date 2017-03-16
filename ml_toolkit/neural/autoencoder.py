@@ -1,9 +1,10 @@
 import numpy as np
 from .activation import TanH
 from .neural_network import NeuralNetwork
+from ml_toolkit.cost import Quadratic
 
 class AutoEncoder(NeuralNetwork):
-    def __init__(self, layers, activation=TanH, loss=np.subtract, seed=None):
+    def __init__(self, layers, activation=TanH, loss=Quadratic, seed=None):
         if (type(layers[0]) is int):
             layers += layers[-2::-1]
         super(AutoEncoder, self).__init__(layers, activation, loss, seed)
