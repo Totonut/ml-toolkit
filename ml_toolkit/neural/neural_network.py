@@ -14,6 +14,9 @@ class NeuralNetwork(object):
 
     def __call__(self, inputs):
         return self.predict(inputs)
+    
+    def sizes(self):
+        return [self.layers[0].input_size] + [layer.output_size for layer in self.layers]
 
     def predict(self, inputs):
         results = inputs
@@ -23,9 +26,15 @@ class NeuralNetwork(object):
         
     def train(self, inputs, outputs, epochs=2500, learning_rate=0.1, momentum=0.1):
         for _ in range(epochs):
+            global_error = 0
             for i in range(len(inputs)):
                 inp = inputs[i]
                 exp = outputs[i]
-                errors = self.loss.derivative(exp, self.predict(inp))
+                pre = self.predict(inp)
+                
+                global_error += self.loss.loss(exp, pre)
+                errors = self.loss.derivative(exp, pre)
+                
                 for layer in self.layers[::-1]:
                     errors = layer.backward(errors, learning_rate, momentum)
+        return global_error

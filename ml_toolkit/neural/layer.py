@@ -4,6 +4,8 @@ from .activation import TanH
 class Layer():
     def __init__(self, input_size, output_size, activation=TanH, seed=None):
         self.activation     = activation
+        self.input_size     = input_size
+        self.output_size    = output_size
         self.weights        = (np.random.RandomState(seed).random_sample(output_size * (input_size + 1)) - 0.5).reshape(output_size, input_size + 1)
         self.old_deltas     = np.zeros(output_size * (input_size + 1)).reshape(output_size, input_size + 1)
 

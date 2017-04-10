@@ -1,4 +1,3 @@
-from math import *
 from abc import *
 import numpy as np
 
@@ -35,7 +34,7 @@ class Euclidian(Cost):
     @staticmethod
     def loss(a, y):
         a, y = Cost.checkVectors(a, y)
-        return sqrt(sum([(a - y) ** 2 for (a, y) in zip(a, y)]))
+        return np.sqrt(np.sum(np.square(a - y)))
 
     @staticmethod
     def derivative(a, y):
@@ -46,17 +45,17 @@ class Cosine(Cost):
     @staticmethod
     def loss(a, y):
         a, y = Cost.checkVectors(a, y)
-        return 1 - sum([a * y for (a, y) in zip(a, y)]) / (sqrt(sum([a ** 2 for a in a])) * sqrt(sum([y ** 2 for y in y])))
+        return 1 - np.sum(a * y) / (np.sqrt(np.sum(np.square(a))) * np.sqrt(np.sum(np.square(y))))
 
     @staticmethod
     def derivative(a, y):
-        return Cosine.loss(a, y) * (a / np.power(a, 2)) - y / (sqrt(sum([a ** 2 for a in a])) * sqrt(sum([y ** 2 for y in y])))
+        return Cosine.loss(a, y) * (a / np.square(a)) - y / (np.sqrt(np.sum(np.square(a))) * np.sqrt(np.sum(np.square(y))))
 
 class CrossEntropy(Cost):
     @staticmethod
     def loss(a, y):
         a, y = Cost.checkVectors(a, y)
-        return -np.sum([y * log(a) + (1 - y) * log(1 - a) for (a, y) in zip(a, y)]) / len(a)
+        return -np.sum(y * np.log(a) + (1 - y) * np.log(1 - a)) / len(a)
 
     @staticmethod
     def derivative(a, y):
@@ -69,7 +68,7 @@ class Quadratic(Cost):
     def loss(a, y):
         a, y = Cost.checkVectors(a, y)
         assert len(a) == len(y), "wrong arguments in quadratic loss function: lengths mismatch"
-        return np.sum([(a - y) ** 2 for (a, y) in zip(a, y)]) / (2 * len(a))
+        return np.sum(np.square(a - y)) / (2 * len(a))
 
     @staticmethod
     def derivative(a, y):
@@ -81,7 +80,7 @@ class Exponential(Cost):
     @staticmethod
     def loss(a, y, l=1):
         a, y = Cost.checkVectors(a, y)
-        return l * exp((1 / l) * np.sum([(a - y) ** 2 for (a, y) in zip(a, y)]))
+        return l * np.exp((1 / l) * np.sum(np.square(a - y)))
 
     @staticmethod
     def derivative(a, y, l=1):
@@ -92,12 +91,12 @@ class Hellinger(Cost):
     @staticmethod
     def loss(a, y):
         a, y = Cost.checkVectors(a, y)
-        return (1 / sqrt(2)) * np.sum([(sqrt(a) - sqrt(y)) ** 2 for (a, y) in zip(a, y)])
+        return (1 / np.sqrt(2)) * np.sum(np.square(np.sqrt(a) - np.sqrt(y)))
 
     @staticmethod
     def derivative(a, y):
         a, y = Cost.checkVectors(a, y)
-        return (np.sqrt(a) - np.sqrt(y)) / (sqrt(2) * np.sqrt(a))
+        return (np.sqrt(a) - np.sqrt(y)) / (np.sqrt(2) * np.sqrt(a))
 
 class KullbackLeibler(Cost):
     """
@@ -106,7 +105,7 @@ class KullbackLeibler(Cost):
     @staticmethod
     def loss(a, y):
         a, y = Cost.checkVectors(a, y)
-        return np.sum([a * log(a / y) for (a, y) in zip(a, y)])
+        return np.sum(a * np.log(a / y))
 
     @staticmethod
     def derivative(a, y):
@@ -120,7 +119,7 @@ class GeneralizedKullbackLeibler(Cost):
     @staticmethod
     def loss(a, y):
         a, y = Cost.checkVectors(a, y)
-        return np.sum([a * log(a / y) for (a, y) in zip(a, y)]) - np.sum(y) + np.sum(a)
+        return np.sum(a * np.log(a / y)) - np.sum(y) + np.sum(a)
 
     @staticmethod
     def derivative(a, y):
@@ -132,12 +131,12 @@ class ItakuraSaito(Cost):
     @staticmethod
     def loss(a, y):
         a, y = Cost.checkVectors(a, y)
-        return np.sum([y / a - log(y / a) - 1 for (a, y) in zip(a, y)])
+        return np.sum(y / a - np.log(y / a) - 1)
 
     @staticmethod
     def derivative(a, y):
         a, y = Cost.checkVectors(a, y)
-        return (y + np.power(a, 2)) / np.power(a, 2)
+        return (y + np.square(a)) / np.square(a)
 
 class Contrastive(Cost):
     @staticmethod
