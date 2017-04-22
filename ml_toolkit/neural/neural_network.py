@@ -7,7 +7,7 @@ class NeuralNetwork(object):
         self.loss = loss
         if (type(layers[0]) is int):
             self.layers = [Layer(layers[i], layers[i + 1], activation, seed) for i in range(len(layers) - 1)]
-        elif (issubclass(type(layers[0]), Layer)):
+        elif (isinstance(type(layers[0]), Layer)):
             self.layers = layers
         else:
             raise TypeError("Argument 'layers' must be a list(int) or list(Layer)")
